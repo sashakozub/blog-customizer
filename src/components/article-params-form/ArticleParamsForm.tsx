@@ -31,9 +31,12 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 	const asideRef = useRef<HTMLElement>(null);
 
 	useEffect(() => {
+		if (!isOpen) {
+			return;
+		}
+
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
-				isOpen &&
 				asideRef.current &&
 				!asideRef.current.contains(event.target as Node)
 			) {
